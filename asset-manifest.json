@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.f8c8ca45.css",
-    "main.js": "/static/js/main.4e2b8cde.js",
-    "static/js/453.96a3325c.chunk.js": "/static/js/453.96a3325c.chunk.js",
-    "static/media/ticket.png": "/static/media/ticket.0a72d8c4584b0cca7006.png",
-    "static/media/point.png": "/static/media/point.cc22a9004a1259a6ff15.png",
-    "index.html": "/index.html",
-    "main.f8c8ca45.css.map": "/static/css/main.f8c8ca45.css.map",
-    "main.4e2b8cde.js.map": "/static/js/main.4e2b8cde.js.map",
-    "453.96a3325c.chunk.js.map": "/static/js/453.96a3325c.chunk.js.map"
+    "main.css": "/kostyaniekrasov/carnival-calculator/static/css/main.ca9327e1.css",
+    "main.js": "/kostyaniekrasov/carnival-calculator/static/js/main.7e402aaa.js",
+    "static/js/453.96a3325c.chunk.js": "/kostyaniekrasov/carnival-calculator/static/js/453.96a3325c.chunk.js",
+    "static/media/ticket.png": "/kostyaniekrasov/carnival-calculator/static/media/ticket.0a72d8c4584b0cca7006.png",
+    "static/media/point.png": "/kostyaniekrasov/carnival-calculator/static/media/point.cc22a9004a1259a6ff15.png",
+    "index.html": "/kostyaniekrasov/carnival-calculator/index.html",
+    "main.ca9327e1.css.map": "/kostyaniekrasov/carnival-calculator/static/css/main.ca9327e1.css.map",
+    "main.7e402aaa.js.map": "/kostyaniekrasov/carnival-calculator/static/js/main.7e402aaa.js.map",
+    "453.96a3325c.chunk.js.map": "/kostyaniekrasov/carnival-calculator/static/js/453.96a3325c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8c8ca45.css",
-    "static/js/main.4e2b8cde.js"
+    "static/css/main.ca9327e1.css",
+    "static/js/main.7e402aaa.js"
   ]
 }
