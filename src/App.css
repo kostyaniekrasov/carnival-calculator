@@ -1,38 +1,119 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: self-end;
+  gap: 10px;
+}
+
+.input_block {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.select {
+  height: 40px;
+  width: 60px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.select--tickets {
+  width: 140px;
+}
+
+.bottom_block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.total_points {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.total_points--img {
+  background-image: url(/public/point.png);
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.total_tickets {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.total_tickets--img {
+  background-image: url(/public/ticket.png);
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Prize-A {
+  color: #fec408;
+}
+
+.Prize-B {
+  color: #7a40ed;
+}
+
+.Prize-C {
+  color: #5c3578;
+}
+
+.Prize-D {
+  color: #aaa1bc;
+}
+
+.Prize-E {
+  color: #aaa1bc;
+}
+
+.Prize-F {
+  color: #aaa1bc;
+}
+
+.Prize-G {
+  color: #aaa1bc;
+}
+
+.Last-Prize {
+  color: #fec408;
+}
+
+.total_points--h2 {
+  color: #fec408;
+}
+
+.total_tickets--h2 {
+  color: #ed4065;
 }
