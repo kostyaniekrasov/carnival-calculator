@@ -120,7 +120,9 @@ function App(): JSX.Element {
           <div className="total_points--img"></div>
         </div>
         <div className="total_tickets">
-          <h2 className="total_tickets--h2">Recive Tickets: {reciveTickets}</h2>
+          <h2 className="total_tickets--h2">
+            Received Tickets: {reciveTickets}
+          </h2>
           <div className="total_tickets--img"></div>
         </div>
       </div>
