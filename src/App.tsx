@@ -19,7 +19,7 @@ interface Category {
 const bigArray: Category[] = [
   {
     title: "Relic core",
-    tickets: 3,
+    tickets: 2,
     items: [
       {
         name: "Relic Core",
