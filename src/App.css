@@ -93,6 +93,18 @@
   color: #11ff25;
 }
 
+.img--ticket {
+  background-image: url(/public/images/ticket.png);
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ticket__block {
+  display: flex;
+  align-items: center;
+}
 .total_tickets--img {
   background-image: url(/public/images/ticket.png);
   width: 50px;

@@ -311,6 +311,11 @@ function App(): JSX.Element {
               </option>
             ))}
           </select>
+
+          <div className="ticket__block">
+            {`${array?.tickets}x`}
+            <div className="img--ticket"></div>
+          </div>
         </div>
 
         <div className="input__block">
