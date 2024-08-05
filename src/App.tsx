@@ -267,10 +267,9 @@ function App(): JSX.Element {
       <table>
         <thead>
           <tr>
-            <th>Type</th>
             <th>Item</th>
             <th>Image</th>
-            <th>Available / Left</th>
+            <th>Left / Max</th>
             <th>Not selling?*</th>
           </tr>
         </thead>
@@ -278,8 +277,7 @@ function App(): JSX.Element {
           {array &&
             array.items.map((item) => (
               <tr>
-                <td className={`${item.type}`}>{item.type}</td>
-                <td className={`${item.type}`}>{item.name}</td>
+                <td className={`${item.type}`}>{ `${item.type}: ${item.name}`}</td>
                 <td>
                   <img src={item.image} className="item-img" alt="zalupa" />
                 </td>
@@ -320,7 +318,6 @@ function App(): JSX.Element {
       </table>
 
       <div className="bottom__blocks">
-        {/* <div className="bottom__block"> */}
         <div className="total">
           <p className="total_points--h2">Total Points: {totalPoints}</p>
           <div className="total_points--img"></div>
@@ -330,9 +327,7 @@ function App(): JSX.Element {
           <p className="total_tickets--h2">Total Spend: {multipliedResult}</p>
           <div className="total_tickets--img"></div>
         </div>
-        {/* </div> */}
 
-        {/* <div className="bottom__block"> */}
         <div className="total">
           <p className="total_received--h2">
             Received Tickets: {receivedTickets}
@@ -350,7 +345,6 @@ function App(): JSX.Element {
           </p>
           <div className="total_tickets--img"></div>
         </div>
-        {/* </div> */}
         <div className="total">
           <p className="green">in gems: {multipliedResult * 300}</p>
           <div className="total_gems--img"></div>
