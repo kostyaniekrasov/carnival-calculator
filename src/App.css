@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@
 }
 
 .label {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .inputs {
@@ -46,7 +46,7 @@
 .select {
   height: 40px;
   width: 60px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px;
   padding: 5px;
   font-family: "Montserrat", sans-serif;
@@ -56,17 +56,21 @@
   width: 150px;
 }
 
-.bottom_block {
+.bottom__blocks {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 10px;
 
   @media (min-width: 600px) {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
-.total_points {
+
+.total {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -82,51 +86,55 @@
   background-repeat: no-repeat;
 }
 
-.total_tickets {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 900;
+.total_received--h2 {
+  color: #11ff25;
 }
 
 .total_tickets--img {
-  background-image: url(/public/ticket.png);
+  background-image: url(/public/images/ticket.png);
   width: 50px;
   height: 50px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.Prize-A {
+.total_gems--img {
+  background-image: url(/public//images/gem.png);
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.A {
   color: #fec408;
 }
 
-.Prize-B {
+.B {
   color: #7a40ed;
 }
 
-.Prize-C {
+.C {
   color: #5c3578;
 }
 
-.Prize-D {
+.D {
   color: #aaa1bc;
 }
 
-.Prize-E {
+.E {
   color: #aaa1bc;
 }
 
-.Prize-F {
+.F {
   color: #aaa1bc;
 }
 
-.Prize-G {
+.G {
   color: #aaa1bc;
 }
 
-.Last-Prize {
+.Last {
   color: #fec408;
 }
 
@@ -146,7 +154,7 @@
   gap: 5px;
 }
 .logo {
-  font-size: 14px;
+  font-size: 0.8rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
@@ -157,4 +165,107 @@
   height: 25px;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.select--categories {
+  width: max-content;
+}
+
+.num-tickets__block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.num-tickets__input {
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.8rem;
+  width: 45px;
+}
+
+.input__block {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.green {
+  color: #11ff25;
+}
+
+table {
+  box-sizing: border-box;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+thead th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.item-img {
+  max-width: 50px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.td_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+select {
+  margin-right: 8px;
+}
+
+td {
+  vertical-align: middle;
+  /* height: 60px; */
+}
+
+td img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 16px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  .item-img {
+    max-width: 40px;
+  }
+}
+
+.checkbox {
+  width: 30px;
+  height: 20px;
 }

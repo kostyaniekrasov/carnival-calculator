@@ -1,137 +1,368 @@
 import React, { useState } from "react";
 import "./App.css";
 
-type SelectedValues = {
-  [key: string]: number;
-};
+interface Prize {
+  name: string;
+  quantity: number;
+  pointsPerItem: number;
+  type: string;
+  image: string;
+  defaultValue?: number;
+}
 
-const threeArray = [
-  { name: "Prize A", quantity: 1, pointsPerItem: 540, total: 540 },
-  { name: "Prize B", quantity: 2, pointsPerItem: 270, total: 540 },
-  { name: "Prize C", quantity: 3, pointsPerItem: 180, total: 540 },
-  { name: "Prize D", quantity: 4, pointsPerItem: 135, total: 540 },
-  { name: "Prize E", quantity: 20, pointsPerItem: 27, total: 540 },
-  { name: "Prize F", quantity: 20, pointsPerItem: 27, total: 540 },
-  { name: "Prize G", quantity: 30, pointsPerItem: 18, total: 540 },
-  { name: "Last Prize", quantity: 1, pointsPerItem: 540, total: 540 },
-];
+interface Category {
+  title: string;
+  tickets: number;
+  items: Prize[];
+}
 
-const twoArray = [
-  { name: "Prize A", quantity: 1, pointsPerItem: 360, total: 360 },
-  { name: "Prize B", quantity: 3, pointsPerItem: 180, total: 540 },
-  { name: "Prize C", quantity: 6, pointsPerItem: 120, total: 720 },
-  { name: "Prize D", quantity: 40, pointsPerItem: 90, total: 3600 },
-  { name: "Prize E", quantity: 40, pointsPerItem: 18, total: 720 },
-  { name: "Prize F", quantity: 40, pointsPerItem: 18, total: 720 },
-  { name: "Prize G", quantity: 60, pointsPerItem: 12, total: 720 },
-  { name: "Last Prize", quantity: 1, pointsPerItem: 360, total: 360 },
-];
-
-const oneArray = [
-  { name: "Prize A", quantity: 1, pointsPerItem: 270, total: 270 },
-  { name: "Prize B", quantity: 2, pointsPerItem: 90, total: 180 },
-  { name: "Prize C", quantity: 3, pointsPerItem: 45, total: 135 },
-  { name: "Prize D", quantity: 3, pointsPerItem: 27, total: 81 },
-  { name: "Prize E", quantity: 19, pointsPerItem: 9, total: 171 },
-  { name: "Prize F", quantity: 20, pointsPerItem: 9, total: 180 },
-  { name: "Prize G", quantity: 34, pointsPerItem: 6, total: 204 },
-  { name: "Last Prize", quantity: 1, pointsPerItem: 270, total: 270 },
+const bigArray: Category[] = [
+  {
+    title: "Relic core",
+    tickets: 3,
+    items: [
+      {
+        name: "Relic Core",
+        quantity: 1,
+        pointsPerItem: 540,
+        type: "A",
+        image: "images/relicCore.png",
+        defaultValue: 1,
+      },
+      {
+        name: "Panda shards",
+        quantity: 3,
+        pointsPerItem: 270,
+        type: "B",
+        image: "images/shardPanda.png",
+      },
+      {
+        name: "Pands shards",
+        quantity: 6,
+        pointsPerItem: 180,
+        type: "C",
+        image: "images/shardPanda.png",
+      },
+      {
+        name: "S key",
+        quantity: 10,
+        pointsPerItem: 135,
+        type: "D",
+        image: "images/keyS.png",
+      },
+      {
+        name: "S key",
+        quantity: 40,
+        pointsPerItem: 27,
+        type: "E",
+        image: "images/keyS.png",
+      },
+      {
+        name: "S key",
+        quantity: 40,
+        pointsPerItem: 27,
+        type: "F",
+        image: "images/keyS.png",
+      },
+      {
+        name: "Oil",
+        quantity: 60,
+        pointsPerItem: 18,
+        type: "G",
+        image: "images/oil.png",
+      },
+      {
+        name: "Relic Core",
+        quantity: 1,
+        pointsPerItem: 540,
+        type: "Last",
+        image: "images/relicCore.png",
+        defaultValue: 1,
+      },
+    ],
+  },
+  {
+    title: "Void chest",
+    tickets: 2,
+    items: [
+      {
+        name: "Void chest",
+        quantity: 1,
+        pointsPerItem: 360,
+        type: "A",
+        image: "images/chestVoidSelect.png",
+        defaultValue: 1,
+      },
+      {
+        name: "Purple equip x3",
+        quantity: 2,
+        pointsPerItem: 180,
+        type: "B",
+        image: "images/equipRandom.png",
+      },
+      {
+        name: "S key x3",
+        quantity: 3,
+        pointsPerItem: 120,
+        type: "C",
+        image: "images/keyS.png",
+      },
+      {
+        name: "Purple equip x1",
+        quantity: 4,
+        pointsPerItem: 90,
+        type: "D",
+        image: "images/equipRandom.png",
+      },
+      {
+        name: "Silver key x1",
+        quantity: 20,
+        pointsPerItem: 18,
+        type: "E",
+        image: "images/keySilver.png",
+      },
+      {
+        name: "Pet silver key x1",
+        quantity: 20,
+        pointsPerItem: 18,
+        type: "F",
+        image: "images/keyPetSilver.png",
+      },
+      {
+        name: "Green equip x1",
+        quantity: 30,
+        pointsPerItem: 12,
+        type: "G",
+        image: "images/equipRandom.png",
+      },
+      {
+        name: "Void chest",
+        quantity: 1,
+        pointsPerItem: 360,
+        type: "Last",
+        image: "images/chestVoidSelect.png",
+        defaultValue: 1,
+      },
+    ],
+  },
 ];
 
 function App(): JSX.Element {
-  const [array, setArray] = useState(threeArray);
-  const [selectedValues, setSelectedValues] = useState<SelectedValues>(
-    array.reduce((acc, item) => ({ ...acc, [item.name]: 0 }), {})
+  const initialArr = bigArray.find(
+    (category) => category.title === "Relic core"
+  );
+  const [array, setArray] = useState<Category | null>(initialArr!);
+
+  const initialSelectedValues = array?.items.reduce((acc, item) => {
+    acc[item.type] = item.defaultValue ?? 0;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const [selectedValues, setSelectedValues] = useState<Record<string, number>>(
+    initialSelectedValues || {}
   );
 
-  const handleSelect = (value: number) => {
-    switch (value) {
-      case 1:
-        setArray(oneArray);
-        break;
-      case 2:
-        setArray(twoArray);
-        break;
-      case 3:
-        setArray(threeArray);
-        break;
-      default:
-        setArray(threeArray);
-        break;
-    }
-    setSelectedValues(
-      array.reduce((acc, item) => ({ ...acc, [item.name]: 0 }), {})
-    );
-  };
+  const [selectedValue, setSelectedValue] = useState(0);
 
-  const handleSelectChange = (name: string, value: number) => {
+  const handleSelectChange = (itemName: string, value: number) => {
     setSelectedValues((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [itemName]: value,
     }));
   };
 
-  const totalPoints = array.reduce((total, item) => {
-    return total + selectedValues[item.name] * item.pointsPerItem;
-  }, 0);
+  const handleSelectTicketsChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    setSelectedValue(Number(e.target.value));
+  };
 
-  const reciveTickets = totalPoints / 30;
+  const multipliedResult = selectedValue * array!.tickets;
+
+  const calculateTotalPoints = () => {
+    if (!array) return 0;
+
+    return array.items.reduce((total, item) => {
+      const selectedQuantity = selectedValues[item.type] || 0;
+      return total + selectedQuantity * item.pointsPerItem;
+    }, 0);
+  };
+
+  const totalPoints = calculateTotalPoints();
+
+  const handleSelect = (selectedTitle: string) => {
+    const selectedArray = bigArray.find(
+      (category) => category.title === selectedTitle
+    );
+    setArray(selectedArray || null);
+  };
+
+  const calculateTotalQuantity = (category: Category | null): number => {
+    if (category === null) return 0;
+
+    const items = category.items;
+    const lastItemIndex = items.length - 1;
+
+    return items
+      .slice(0, lastItemIndex)
+      .reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const totalQuantity = calculateTotalQuantity(array);
+
+  const receivedTickets = totalPoints / 30;
+
+  const handleCheckboxChange = (itemType: string, isChecked: boolean) => {
+    setSelectedValues((prevValues) => {
+      const newValues = { ...prevValues };
+      const currentItem = array?.items.find((item) => item.type === itemType);
+      const itemValue = currentItem?.defaultValue || 0;
+
+      if (isChecked) {
+        delete newValues[itemType];
+      } else {
+        newValues[itemType] = itemValue;
+      }
+
+      return newValues;
+    });
+  };
 
   return (
     <div className="App">
       <header className="header">
         <div className="select__block">
-          <label className="label" htmlFor="tickets">
-            Choose a lot
+          <label className="label" htmlFor="categories">
+            Choose a category
           </label>
           <select
-            className="select select--tickets"
-            name="tickets"
-            id="tickets"
-            onChange={(e) => handleSelect(Number(e.target.value))}
+            className="select select--categories"
+            name="categories"
+            id="categories"
+            onChange={(e) => handleSelect(e.target.value)}
           >
-            <option value="3">For 3 tickets</option>
-            <option value="2">For 2 tickets</option>
-            <option value="1">For 1 ticket</option>
+            {bigArray.map((category, index) => (
+              <option key={index} value={category.title}>
+                {category.title}
+              </option>
+            ))}
           </select>
         </div>
-        <div className="logo_block">
-          <p className="logo">Survivor.io Ukraine</p>
-          <div className="logo--img"></div>
-        </div>
-      </header>
 
-      <div className="inputs">
-        {array.map((item) => (
-          <div className="input_block" key={item.name}>
-            <label className={item.name.replace(/ /g, "-")}>{item.name}</label>
-            <select
-              className="select"
-              value={selectedValues[item.name] || 0}
-              onChange={(e) =>
-                handleSelectChange(item.name, Number(e.target.value))
-              }
-            >
-              {[...Array(item.quantity + 1).keys()].map((num) => (
-                <option key={num} value={num}>
-                  {num}
+        <div className="input__block">
+          <div className="num-tickets__block">
+            <label htmlFor="num-tickets">Rewards Left:</label>
+            <select className="select" onChange={handleSelectTicketsChange}>
+              {Array.from({ length: totalQuantity + 1 }, (_, i) => (
+                <option key={i} value={i}>
+                  {i}
                 </option>
               ))}
             </select>
           </div>
-        ))}
-      </div>
+          <p>/{totalQuantity}</p>
+        </div>
+      </header>
 
-      <div className="bottom_block">
-        <div className="total_points">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Item</th>
+            <th>Image</th>
+            <th>Available / Left</th>
+            <th>Not selling?*</th>
+          </tr>
+        </thead>
+        <tbody>
+          {array &&
+            array.items.map((item) => (
+              <tr>
+                <td className={`${item.type}`}>{item.type}</td>
+                <td className={`${item.type}`}>{item.name}</td>
+                <td>
+                  <img src={item.image} className="item-img" alt="zalupa" />
+                </td>
+                <td>
+                  <div className="td_title">
+                    <select
+                      className="select"
+                      value={
+                        selectedValues[item.type] !== undefined
+                          ? selectedValues[item.type]
+                          : item.defaultValue || 0
+                      }
+                      onChange={(e) =>
+                        handleSelectChange(item.type, Number(e.target.value))
+                      }
+                    >
+                      {Array.from({ length: item.quantity + 1 }, (_, i) => (
+                        <option key={i} value={i}>
+                          {i}
+                        </option>
+                      ))}
+                    </select>
+                    <p>{`/ ${item.quantity}`}</p>
+                  </div>
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    onChange={(e) =>
+                      handleCheckboxChange(item.type, e.target.checked)
+                    }
+                  />
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+
+      <div className="bottom__blocks">
+        {/* <div className="bottom__block"> */}
+        <div className="total">
           <p className="total_points--h2">Total Points: {totalPoints}</p>
           <div className="total_points--img"></div>
         </div>
-        <div className="total_tickets">
-          <p className="total_tickets--h2">Received Tickets: {reciveTickets}</p>
+
+        <div className="total">
+          <p className="total_tickets--h2">Total Spend: {multipliedResult}</p>
           <div className="total_tickets--img"></div>
         </div>
+        {/* </div> */}
+
+        {/* <div className="bottom__block"> */}
+        <div className="total">
+          <p className="total_received--h2">
+            Received Tickets: {receivedTickets}
+          </p>
+          <div className="total_tickets--img"></div>
+        </div>
+        <div className="total">
+          <p
+            className={
+              receivedTickets > multipliedResult ? "green" : "total_tickets--h2"
+            }
+          >
+            Difference Tickets:{receivedTickets > multipliedResult ? "+" : ""}
+            {Math.round(receivedTickets - multipliedResult)}
+          </p>
+          <div className="total_tickets--img"></div>
+        </div>
+        {/* </div> */}
+        <div className="total">
+          <p className="green">in gems: {multipliedResult * 300}</p>
+          <div className="total_gems--img"></div>
+        </div>
       </div>
+
+      <footer>
+        <div className="logo_block">
+          <p className="logo">Survivor.io Ukraine</p>
+          <div className="logo--img"></div>
+        </div>
+      </footer>
     </div>
   );
 }
