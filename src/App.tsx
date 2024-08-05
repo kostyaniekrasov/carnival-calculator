@@ -145,6 +145,70 @@ const bigArray: Category[] = [
       },
     ],
   },
+  {
+    title: "S chest",
+    tickets: 3,
+    items: [
+      {
+        name: "S selector x1",
+        quantity: 1,
+        pointsPerItem: 540,
+        type: "A",
+        image: "images/chestSSelect.png",
+        defaultValue: 1,
+      },
+      {
+        name: "Rand purple equip x3",
+        quantity: 2,
+        pointsPerItem: 270,
+        type: "B",
+        image: "images/equipRandom.png",
+      },
+      {
+        name: "S key x10",
+        quantity: 3,
+        pointsPerItem: 180,
+        type: "C",
+        image: "images/keyS.png",
+      },
+      {
+        name: "Rand purple equip x1",
+        quantity: 4,
+        pointsPerItem: 135,
+        type: "D",
+        image: "images/equipRandom.png",
+      },
+      {
+        name: "S key x1",
+        quantity: 20,
+        pointsPerItem: 27,
+        type: "E",
+        image: "images/keyS.png",
+      },
+      {
+        name: "EDF key x1",
+        quantity: 20,
+        pointsPerItem: 27,
+        type: "F",
+        image: "images/keyGolden.png",
+      },
+      {
+        name: "Pet golden key x1",
+        quantity: 30,
+        pointsPerItem: 18,
+        type: "G",
+        image: "images/keyPetGolden.png",
+      },
+      {
+        name: "S selector x1",
+        quantity: 1,
+        pointsPerItem: 540,
+        type: "Last",
+        image: "images/chestSSelect.png",
+        defaultValue: 1,
+      },
+    ],
+  },
 ];
 
 function App(): JSX.Element {
@@ -277,7 +341,9 @@ function App(): JSX.Element {
           {array &&
             array.items.map((item) => (
               <tr>
-                <td className={`${item.type}`}>{ `${item.type}: ${item.name}`}</td>
+                <td
+                  className={`${item.type}`}
+                >{`${item.type}: ${item.name}`}</td>
                 <td>
                   <img src={item.image} className="item-img" alt="zalupa" />
                 </td>
