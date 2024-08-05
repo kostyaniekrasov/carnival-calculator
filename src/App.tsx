@@ -80,17 +80,25 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <header className="header">
-        <label htmlFor="tickets">Choose a lot</label>
-        <select
-          className="select select--tickets"
-          name="tickets"
-          id="tickets"
-          onChange={(e) => handleSelect(Number(e.target.value))}
-        >
-          <option value="3">For 3 tickets</option>
-          <option value="2">For 2 tickets</option>
-          <option value="1">For 1 ticket</option>
-        </select>
+        <div className="select__block">
+          <label className="label" htmlFor="tickets">
+            Choose a lot
+          </label>
+          <select
+            className="select select--tickets"
+            name="tickets"
+            id="tickets"
+            onChange={(e) => handleSelect(Number(e.target.value))}
+          >
+            <option value="3">For 3 tickets</option>
+            <option value="2">For 2 tickets</option>
+            <option value="1">For 1 ticket</option>
+          </select>
+        </div>
+        <div className="logo_block">
+          <p className="logo">Survivor.io Ukraine</p>
+          <div className="logo--img"></div>
+        </div>
       </header>
 
       <div className="inputs">
@@ -116,13 +124,11 @@ function App(): JSX.Element {
 
       <div className="bottom_block">
         <div className="total_points">
-          <h2 className="total_points--h2">Total Points: {totalPoints}</h2>
+          <p className="total_points--h2">Total Points: {totalPoints}</p>
           <div className="total_points--img"></div>
         </div>
         <div className="total_tickets">
-          <h2 className="total_tickets--h2">
-            Received Tickets: {reciveTickets}
-          </h2>
+          <p className="total_tickets--h2">Received Tickets: {reciveTickets}</p>
           <div className="total_tickets--img"></div>
         </div>
       </div>
