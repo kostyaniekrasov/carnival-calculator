@@ -310,3 +310,25 @@ td img {
   background-color: #f3b798;
   font-weight: bold;
 }
+
+.forDesktop {
+  display: none;
+
+  height: 30px;
+  width: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #aaa1bc;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+
+  @media (min-width: 800px) {
+    display: block;
+  }
+}
+
+.forMobile {
+  @media (min-width: 800px) {
+    display: none;
+  }
+}

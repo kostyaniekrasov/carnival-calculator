@@ -98,7 +98,7 @@ function App(): JSX.Element {
       <header className="header">
         <div className="select__block">
           <label className="label" htmlFor="categories">
-            Choose a category
+            Оберіть категорію
           </label>
           <select
             className="select select--categories"
@@ -121,7 +121,7 @@ function App(): JSX.Element {
 
         <div className="input__block">
           <div className="num-tickets__block">
-            <label htmlFor="num-tickets">{`Rewards Left: ${sumSelectedValues}`}</label>
+            <label htmlFor="num-tickets">{`Залишилось нагород: ${sumSelectedValues}`}</label>
           </div>
           <p>/{totalQuantity}</p>
         </div>
@@ -130,10 +130,10 @@ function App(): JSX.Element {
       <table>
         <thead>
           <tr>
-            <th>Item</th>
-            <th>Image</th>
-            <th>Left / Max</th>
-            <th>Not selling?*</th>
+            <th>Тип</th>
+            <th>Пікча</th>
+            <th>Залишилось / Max</th>
+            <th>Залишаю собі*</th>
           </tr>
         </thead>
         <tbody>
@@ -148,10 +148,11 @@ function App(): JSX.Element {
                 </td>
                 <td>
                   <div className="td_title">
-                    {/* <input
+                    <input
                       type="number"
-                      name=""
-                      id=""
+                      className="forDesktop"
+                      min={0}
+                      max={item.quantity}
                       value={
                         selectedValues[item.type] !== undefined
                           ? selectedValues[item.type]
@@ -160,9 +161,9 @@ function App(): JSX.Element {
                       onChange={(e) =>
                         handleSelectChange(item.type, Number(e.target.value))
                       }
-                    /> */}
+                    />
                     <select
-                      className="select"
+                      className="select forMobile"
                       value={
                         selectedValues[item.type] !== undefined
                           ? selectedValues[item.type]
@@ -213,19 +214,19 @@ function App(): JSX.Element {
           </thead>
           <tbody>
             <tr>
-              <td>Total Spent</td>
+              <td>Всього витрачено</td>
               <td>{totalPoints}</td>
               <td>{multipliedResult}</td>
               <td>{multipliedResult * 300}</td>
             </tr>
             <tr>
-              <td>Amount Returned</td>
+              <td>Повернено</td>
               <td>{subtractedPoints}</td>
               <td>{receivedTickets}</td>
               <td>{receivedTickets * 300}</td>
             </tr>
             <tr>
-              <td>Amount Gained/Lost</td>
+              <td>Отримана/втрачена сума</td>
 
               <td>
                 {totalPoints > subtractedPoints ? "-" : ""}
