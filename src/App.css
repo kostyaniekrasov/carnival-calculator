@@ -313,6 +313,7 @@ td img {
 
 .forDesktop {
   display: none;
+  nav-index: 0;
 
   height: 30px;
   width: 40px;
@@ -331,4 +332,8 @@ td img {
   @media (min-width: 800px) {
     display: none;
   }
+}
+
+.td--checkbox {
+  text-align: center;
 }

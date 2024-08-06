@@ -153,6 +153,7 @@ function App(): JSX.Element {
                       className="forDesktop"
                       min={0}
                       max={item.quantity}
+                      tabIndex={1}
                       value={
                         selectedValues[item.type] !== undefined
                           ? selectedValues[item.type]
@@ -182,7 +183,7 @@ function App(): JSX.Element {
                     <p>{`/ ${item.quantity}`}</p>
                   </div>
                 </td>
-                <td>
+                <td className="td--checkbox">
                   <input
                     type="checkbox"
                     className="checkbox"
@@ -215,7 +216,7 @@ function App(): JSX.Element {
           <tbody>
             <tr>
               <td>Всього витрачено</td>
-              <td>{totalPoints}</td>
+              <td>{multipliedResult * 30}</td>
               <td>{multipliedResult}</td>
               <td>{multipliedResult * 300}</td>
             </tr>
@@ -229,8 +230,8 @@ function App(): JSX.Element {
               <td>Отримана/втрачена сума</td>
 
               <td>
-                {totalPoints > subtractedPoints ? "-" : ""}
-                {totalPoints - subtractedPoints}
+                {multipliedResult * 30 > subtractedPoints ? "" : "+"}
+                {subtractedPoints - multipliedResult * 30}
               </td>
               <td>
                 {receivedTickets > multipliedResult ? "+" : ""}
