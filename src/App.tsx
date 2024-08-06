@@ -148,6 +148,19 @@ function App(): JSX.Element {
                 </td>
                 <td>
                   <div className="td_title">
+                    {/* <input
+                      type="number"
+                      name=""
+                      id=""
+                      value={
+                        selectedValues[item.type] !== undefined
+                          ? selectedValues[item.type]
+                          : item.defaultValue || 0
+                      }
+                      onChange={(e) =>
+                        handleSelectChange(item.type, Number(e.target.value))
+                      }
+                    /> */}
                     <select
                       className="select"
                       value={
@@ -213,7 +226,11 @@ function App(): JSX.Element {
             </tr>
             <tr>
               <td>Amount Gained/Lost</td>
-              <td>{totalPoints - subtractedPoints}</td>
+
+              <td>
+                {totalPoints > subtractedPoints ? "-" : ""}
+                {totalPoints - subtractedPoints}
+              </td>
               <td>
                 {receivedTickets > multipliedResult ? "+" : ""}
                 {difference}
