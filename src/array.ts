@@ -14,70 +14,70 @@ export interface Category {
 }
 
 export const bigArray: Category[] = [
-  {
-  "title": "Relic Core Chest",
-  "tickets": 3,
-  "items": [
     {
-      "name": "Relic Box",
-      "quantity": 2,
-      "pointsPerItem": 360,
-      "type": "A",
-      "image": "images/relicCore.png",
-      "defaultValue": 2
-    },
-    {
-      "name": "Collectible selector",
-      "quantity": 3,
-      "pointsPerItem": 240,
-      "type": "B",
-      "image": "images/boxB.png"
-    },
-    {
-      "name": "Random collectible",
-      "quantity": 6,
-      "pointsPerItem": 120,
-      "type": "C",
-      "image": "images/boxC.png"
-    },
-    {
-      "name": "Shards x3",
-      "quantity": 9,
-      "pointsPerItem": 80,
-      "type": "D",
-      "image": "images/keyS.png"
-    },
-    {
-      "name": "Key x2",
-      "quantity": 40,
-      "pointsPerItem": 18,
-      "type": "E",
-      "image": "images/keyS.png"
-    },
-    {
-      "name": "Oil x600",
-      "quantity": 40,
-      "pointsPerItem": 18,
-      "type": "F",
-      "image": "images/oil.png"
-    },
-    {
-      "name": "Cookie x600",
-      "quantity": 60,
-      "pointsPerItem": 12,
-      "type": "G",
-      "image": "images/cookie.png"
-    },
-    {
-      "name": "Final Relic Box",
-      "quantity": 1,
-      "pointsPerItem": 720,
-      "type": "Last",
-      "image": "images/relicCore.png",
-      "defaultValue": 1
-    }
-  ]
-}
+    "title": "Relic Core Chest",
+    "tickets": 3,
+    "items": [
+      {
+        "name": "Relic Box",
+        "quantity": 2,
+        "pointsPerItem": 360,
+        "type": "A",
+        "image": "images/relicCore.png",
+        "defaultValue": 2
+      },
+      {
+        "name": "Collectible selector",
+        "quantity": 3,
+        "pointsPerItem": 240,
+        "type": "B",
+        "image": "images/boxB.png"
+      },
+      {
+        "name": "Random collectible",
+        "quantity": 6,
+        "pointsPerItem": 120,
+        "type": "C",
+        "image": "images/boxC.png"
+      },
+      {
+        "name": "Shards x3",
+        "quantity": 9,
+        "pointsPerItem": 80,
+        "type": "D",
+        "image": "images/keyS.png"
+      },
+      {
+        "name": "Key x2",
+        "quantity": 40,
+        "pointsPerItem": 18,
+        "type": "E",
+        "image": "images/keyS.png"
+      },
+      {
+        "name": "Oil x600",
+        "quantity": 40,
+        "pointsPerItem": 18,
+        "type": "F",
+        "image": "images/oil.png"
+      },
+      {
+        "name": "Cookie x600",
+        "quantity": 60,
+        "pointsPerItem": 12,
+        "type": "G",
+        "image": "images/cookie.png"
+      },
+      {
+        "name": "Final Relic Box",
+        "quantity": 1,
+        "pointsPerItem": 720,
+        "type": "Last",
+        "image": "images/relicCore.png",
+        "defaultValue": 1
+      }
+    ]
+  },
   {
     title: "Panda shards",
     tickets: 3,
